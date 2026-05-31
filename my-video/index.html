@@ -5,47 +5,428 @@
     <meta name="viewport" content="width=1920, height=1080" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px; height: 1080px;
         overflow: hidden;
-        background: #000;
+        background: #070d14;
+      }
+
+      /* ── ALL SCENES ── */
+      .scene {
+        position: absolute; top: 0; left: 0;
+        width: 1920px; height: 1080px;
+        overflow: hidden;
+      }
+      #s1 { z-index: 1; background: #070d14; }
+      /* CSS initial opacity ensures scenes are hidden even if GSAP CDN is unavailable */
+      #s2 { z-index: 2; background: #e8e0d4; opacity: 0; }
+      #s3 { z-index: 3; background: #0d0800; opacity: 0; }
+      #s4 { z-index: 4; background: #050a0f; opacity: 0; }
+
+      /* ── SCENE 1: ARRIVAL ── */
+      #s1-canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+      #s1-grain {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+        background-size: 400px 400px; z-index: 1; pointer-events: none;
+      }
+      #s1-location {
+        position: absolute; top: 80px; left: 120px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 18px; font-weight: 400;
+        letter-spacing: 0.25em; color: #c8a55e; text-transform: uppercase;
+        z-index: 10;
+      }
+      #s1-tagline {
+        position: absolute; top: 80px; right: 120px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 18px; letter-spacing: 0.2em;
+        color: rgba(200,165,94,0.82); text-transform: uppercase; text-align: right;
+        z-index: 10;
+      }
+      #s1-name {
+        position: absolute; bottom: 230px; left: 120px;
+        font-family: Garamond, 'EB Garamond', serif;
+        font-size: 148px; font-weight: 400;
+        color: #f0ece6; letter-spacing: 0.06em; line-height: 1;
+        z-index: 10;
+      }
+      #s1-divider {
+        position: absolute; bottom: 215px; left: 120px;
+        width: 660px; height: 1px;
+        background: linear-gradient(90deg, #c8a55e 0%, rgba(200,165,94,0.15) 100%);
+        transform-origin: left center; z-index: 10;
+      }
+      #s1-place {
+        position: absolute; bottom: 168px; left: 124px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 22px; letter-spacing: 0.38em;
+        color: #c8a55e; text-transform: uppercase; z-index: 10;
+      }
+      /* Decorative registration mark */
+      #s1-reg {
+        position: absolute; bottom: 80px; right: 120px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 11px; letter-spacing: 0.15em;
+        color: rgba(200,165,94,0.22); text-transform: uppercase; text-align: right;
+        line-height: 1.8; z-index: 10;
+      }
+
+      /* ── SCENE 2: THE SPACE ── */
+      #s2-ghost {
+        position: absolute; top: -50px; left: -10px;
+        font-family: Garamond, 'EB Garamond', serif;
+        font-size: 500px; font-weight: 400;
+        color: rgba(80,60,30,0.052); line-height: 1;
+        z-index: 0; white-space: nowrap; pointer-events: none;
+      }
+      #s2-top-bar {
+        position: absolute; top: 0; left: 0;
+        width: 1920px; height: 4px;
+        background: linear-gradient(90deg, #c8a55e, rgba(200,165,94,0.08) 65%, transparent);
+        transform-origin: left center; z-index: 5;
+      }
+      #s2-47 {
+        position: absolute; top: 60px; right: 80px;
+        font-family: Garamond, 'EB Garamond', serif;
+        font-size: 360px; font-weight: 400;
+        color: rgba(200,165,94,0.10); line-height: 1;
+        z-index: 2;
+      }
+      #s2-label {
+        position: absolute; top: 80px; left: 120px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 14px; letter-spacing: 0.32em;
+        color: #a08060; text-transform: uppercase; z-index: 10;
+      }
+      #s2-headline {
+        position: absolute; top: 140px; left: 120px;
+        font-family: Garamond, 'EB Garamond', serif;
+        font-size: 152px; font-weight: 400;
+        color: #1a1208; letter-spacing: -0.01em; line-height: 0.92;
+        max-width: 980px; z-index: 10;
+      }
+      #s2-rule {
+        position: absolute; top: 536px; left: 120px;
+        width: 860px; height: 1px;
+        background: linear-gradient(90deg, #c8a55e, rgba(200,165,94,0.15));
+        transform-origin: left center; z-index: 10;
+      }
+      #s2-sub {
+        position: absolute; top: 566px; left: 120px;
+        font-family: Garamond, 'EB Garamond', serif;
+        font-style: italic; font-size: 46px; font-weight: 400;
+        color: #4a3820; line-height: 1.35; max-width: 840px; z-index: 10;
+      }
+      #s2-features {
+        position: absolute; bottom: 90px; right: 120px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 16px; letter-spacing: 0.22em;
+        color: #a08060; text-transform: uppercase;
+        text-align: right; line-height: 2.5; z-index: 10;
+      }
+      /* Decorative left rule */
+      #s2-left-rule {
+        position: absolute; top: 0; left: 80px;
+        width: 1px; height: 100%;
+        background: linear-gradient(180deg, transparent, rgba(200,165,94,0.18) 20%,
+          rgba(200,165,94,0.18) 80%, transparent);
+        z-index: 5;
+      }
+
+      /* ── SCENE 3: SUNSET ── */
+      #s3-canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+      #s3-right-rule {
+        position: absolute; top: 0; right: 220px;
+        width: 1px; height: 100%;
+        background: linear-gradient(180deg, transparent,
+          rgba(200,165,94,0.16) 25%, rgba(200,165,94,0.16) 75%, transparent);
+        z-index: 5;
+      }
+      #s3-meta {
+        position: absolute; top: 80px; left: 120px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 18px; letter-spacing: 0.3em;
+        color: rgba(200,165,94,0.88); text-transform: uppercase; z-index: 10;
+      }
+      #s3-quote {
+        position: absolute; top: 270px; left: 120px;
+        font-family: Garamond, 'EB Garamond', serif;
+        font-style: italic; font-size: 74px; font-weight: 400;
+        color: #f0ece6; line-height: 1.28;
+        max-width: 1040px; z-index: 10;
+      }
+      #s3-attr-rule {
+        position: absolute; bottom: 136px; left: 120px;
+        width: 380px; height: 1px;
+        background: rgba(200,165,94,0.32);
+        transform-origin: left center; z-index: 10;
+      }
+      #s3-attr {
+        position: absolute; bottom: 94px; left: 120px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 18px; letter-spacing: 0.25em;
+        color: #c8a55e; text-transform: uppercase; z-index: 10;
+      }
+      /* Decorative corner marks */
+      #s3-corner-tl, #s3-corner-br {
+        position: absolute; z-index: 6;
+        width: 24px; height: 24px;
+      }
+      #s3-corner-tl {
+        top: 40px; left: 40px;
+        border-top: 1px solid rgba(200,165,94,0.3);
+        border-left: 1px solid rgba(200,165,94,0.3);
+      }
+      #s3-corner-br {
+        bottom: 40px; right: 40px;
+        border-bottom: 1px solid rgba(200,165,94,0.3);
+        border-right: 1px solid rgba(200,165,94,0.3);
+      }
+
+      /* ── SCENE 4: CTA ── */
+      #s4-name {
+        position: absolute;
+        width: 1920px; top: 388px;
+        font-family: Garamond, 'EB Garamond', serif;
+        font-size: 100px; font-weight: 400;
+        color: #f0ece6; letter-spacing: 0.12em;
+        text-align: center; z-index: 10;
+      }
+      #s4-rule {
+        position: absolute;
+        top: 528px; left: 760px;
+        width: 400px; height: 1px;
+        background: linear-gradient(90deg, transparent, #c8a55e 50%, transparent);
+        transform-origin: center center; z-index: 10;
+      }
+      #s4-url {
+        position: absolute;
+        width: 1920px; top: 594px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 18px; letter-spacing: 0.24em;
+        color: #c8a55e; text-transform: lowercase; text-align: center;
+        z-index: 10;
+      }
+      #s4-loc {
+        position: absolute;
+        width: 1920px; bottom: 72px;
+        font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+        font-size: 16px; letter-spacing: 0.36em;
+        color: rgba(200,165,94,0.72); text-transform: uppercase; text-align: center;
+        z-index: 10;
       }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
-    >
-      
-      
+    <div id="root" data-composition-id="main" data-start="0" data-duration="15"
+         data-width="1920" data-height="1080">
 
-      <!--
-        Add your clips here. Example:
-        <div id="title" class="clip" data-start="0" data-duration="5" data-track-index="1"
-             style="font-size: 64px; color: #fff; padding: 40px">
-          Hello World
+      <!-- ── SCENE 1: ARRIVAL  0 – 5.5s ── -->
+      <div id="s1" class="clip scene" data-start="0" data-duration="5.5" data-track-index="1">
+        <canvas id="s1-canvas" width="1920" height="1080"></canvas>
+        <div id="s1-grain"></div>
+        <div id="s1-location">Itoshima · Fukuoka Prefecture · Japan</div>
+        <div id="s1-tagline">Sunset Beach Club</div>
+        <div id="s1-name">seven × seven</div>
+        <div id="s1-divider"></div>
+        <div id="s1-place">Itoshima</div>
+        <div id="s1-reg" data-layout-ignore>
+          47 Ocean View Rooms<br>
+          Est. 2024 · Fukuoka · Japan
         </div>
-      -->
+      </div>
+
+      <!-- ── SCENE 2: THE SPACE  4.8 – 10.5s ── -->
+      <div id="s2" class="clip scene" data-start="4.8" data-duration="5.7" data-track-index="2">
+        <div id="s2-ghost" data-layout-ignore>Sea</div>
+        <div id="s2-top-bar"></div>
+        <div id="s2-left-rule"></div>
+        <div id="s2-47" data-layout-ignore>47</div>
+        <div id="s2-label">Rooms &amp; Suites · Itoshima</div>
+        <div id="s2-headline">Every window faces the sea.</div>
+        <div id="s2-rule"></div>
+        <div id="s2-sub">Private balconies. Open sky. Yours alone.</div>
+        <div id="s2-features">
+          Rooftop Jacuzzi<br>
+          Finnish Sauna<br>
+          Infinity Pool<br>
+          Wellness &amp; SUP
+        </div>
+      </div>
+
+      <!-- ── SCENE 3: SUNSET  9.8 – 14.0s ── -->
+      <div id="s3" class="clip scene" data-start="9.8" data-duration="4.2" data-track-index="3">
+        <canvas id="s3-canvas" width="1920" height="1080"></canvas>
+        <div id="s3-right-rule"></div>
+        <div id="s3-corner-tl"></div>
+        <div id="s3-corner-br"></div>
+        <div id="s3-meta">45 min from Fukuoka · Kyushu · Japan</div>
+        <div id="s3-quote">
+          "Where the sea, mountains, and sky feel close at hand."
+        </div>
+        <div id="s3-attr-rule"></div>
+        <div id="s3-attr">Sunset Beach Club · seven × seven</div>
+      </div>
+
+      <!-- ── SCENE 4: CTA  13.4 – 15.0s ── -->
+      <div id="s4" class="clip scene" data-start="13.4" data-duration="1.6" data-track-index="4">
+        <div id="s4-name">seven × seven</div>
+        <div id="s4-rule"></div>
+        <div id="s4-url">sevenxseven.com/hotels/itoshima</div>
+        <div id="s4-loc">Itoshima · Fukuoka · Japan</div>
+      </div>
+
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.from("#title", { opacity: 0, y: -50, duration: 1 }, 0);
-      window.__timelines["main"] = tl;
+
+      // ─── Initial opacity for crossfade scenes ───
+      tl.set('#s2', { opacity: 0 }, 0);
+      tl.set('#s3', { opacity: 0 }, 0);
+      tl.set('#s4', { opacity: 0 }, 0);
+
+      // ─── CANVAS S1: ocean night horizon ───
+      (function () {
+        const cv = document.getElementById('s1-canvas');
+        const cx = cv.getContext('2d');
+        const W = 1920, H = 1080;
+        function draw(p) {
+          cx.clearRect(0, 0, W, H);
+          // Deep bg gradient
+          const bg = cx.createLinearGradient(0, 0, 0, H);
+          bg.addColorStop(0,   '#050b14');
+          bg.addColorStop(0.5, '#070d14');
+          bg.addColorStop(1,   '#09101a');
+          cx.fillStyle = bg; cx.fillRect(0, 0, W, H);
+          // Horizon warm glow
+          const hy = H * 0.50;
+          const rg = cx.createRadialGradient(W*0.5, hy, 0, W*0.5, hy, W*0.60);
+          rg.addColorStop(0,   `rgba(200,125,38,${0.09 + p*0.09})`);
+          rg.addColorStop(0.4, `rgba(160,85,18,${0.05 + p*0.04})`);
+          rg.addColorStop(1,   'rgba(0,0,0,0)');
+          cx.fillStyle = rg; cx.fillRect(0, 0, W, H);
+          // Thin gold horizon line
+          const hl = cx.createLinearGradient(0, 0, W, 0);
+          hl.addColorStop(0,    'rgba(200,165,80,0)');
+          hl.addColorStop(0.12, `rgba(220,178,88,${0.11+p*0.13})`);
+          hl.addColorStop(0.5,  `rgba(242,198,102,${0.20+p*0.15})`);
+          hl.addColorStop(0.88, `rgba(220,178,88,${0.11+p*0.13})`);
+          hl.addColorStop(1,    'rgba(200,165,80,0)');
+          cx.fillStyle = hl; cx.fillRect(0, hy - 1, W, 2);
+          // Water shimmer
+          const ws = cx.createLinearGradient(0, hy, 0, H);
+          ws.addColorStop(0, `rgba(165,115,45,${0.030+p*0.022})`);
+          ws.addColorStop(1, 'rgba(0,0,0,0)');
+          cx.fillStyle = ws; cx.fillRect(0, hy, W, H - hy);
+        }
+        draw(0);
+        const proxy = { t: 0 };
+        tl.to(proxy, { t: 1, duration: 5.5, ease: 'sine.inOut', onUpdate: () => draw(proxy.t) }, 0);
+      })();
+
+      // ─── CANVAS S3: warm sunset glow ───
+      (function () {
+        const cv = document.getElementById('s3-canvas');
+        const cx = cv.getContext('2d');
+        const W = 1920, H = 1080;
+        function draw(p) {
+          cx.clearRect(0, 0, W, H);
+          const bg = cx.createLinearGradient(0, 0, 0, H);
+          bg.addColorStop(0,   '#0d0800');
+          bg.addColorStop(0.6, '#180d02');
+          bg.addColorStop(1,   '#0d0800');
+          cx.fillStyle = bg; cx.fillRect(0, 0, W, H);
+          // Large warm amber orb — right side
+          const or = cx.createRadialGradient(W*0.75, H*0.38, 0, W*0.75, H*0.38, H*0.74);
+          or.addColorStop(0,    `rgba(242,152,52,${0.15+p*0.07})`);
+          or.addColorStop(0.22, `rgba(210,88,22,${0.09+p*0.05})`);
+          or.addColorStop(0.52, `rgba(168,46,8,${0.055})`);
+          or.addColorStop(1,    'rgba(0,0,0,0)');
+          cx.fillStyle = or; cx.fillRect(0, 0, W, H);
+          // Ambient secondary glow — center-left
+          const lg = cx.createRadialGradient(W*0.33, H*0.58, 0, W*0.33, H*0.58, W*0.44);
+          lg.addColorStop(0, `rgba(185,115,32,${0.065+p*0.03})`);
+          lg.addColorStop(1, 'rgba(0,0,0,0)');
+          cx.fillStyle = lg; cx.fillRect(0, 0, W, H);
+        }
+        draw(0);
+        const proxy3 = { t: 0 };
+        tl.to(proxy3, { t: 1, duration: 4.2, ease: 'sine.inOut', onUpdate: () => draw(proxy3.t) }, 9.8);
+      })();
+
+      // ─── SCENE CROSSFADES (on containers) ───
+      tl.to('#s2', { opacity: 1, duration: 0.7, ease: 'power1.inOut' }, 4.8);
+      tl.to('#s3', { opacity: 1, duration: 0.7, ease: 'power1.inOut' }, 9.8);
+      tl.to('#s4', { opacity: 1, duration: 0.55, ease: 'power1.inOut' }, 13.4);
+      // Final fade to black (only allowed exit tween — last scene)
+      tl.to('#s4', { opacity: 0, duration: 0.35, ease: 'power1.in' }, 14.65);
+      tl.set('#s4', { opacity: 0 }, 15);
+
+      // ─── SCENE 1 ANIMATIONS ───
+      tl.fromTo('#s1-location',
+        { opacity: 0, x: -26 }, { opacity: 1, x: 0, duration: 0.9, ease: 'expo.out' }, 0.2);
+      tl.fromTo('#s1-tagline',
+        { opacity: 0 }, { opacity: 1, duration: 1.1, ease: 'sine.inOut' }, 0.65);
+      tl.fromTo('#s1-name',
+        { opacity: 0, y: 48 }, { opacity: 1, y: 0, duration: 1.6, ease: 'power2.out' }, 0.95);
+      tl.fromTo('#s1-divider',
+        { scaleX: 0 }, { scaleX: 1, duration: 0.75, ease: 'expo.out' }, 2.2);
+      tl.fromTo('#s1-place',
+        { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 2.65);
+      tl.fromTo('#s1-reg',
+        { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'sine.inOut' }, 3.0);
+
+      // ─── SCENE 2 ANIMATIONS ───
+      tl.fromTo('#s2-top-bar',
+        { scaleX: 0 }, { scaleX: 1, duration: 0.52, ease: 'expo.out' }, 4.9);
+      tl.fromTo('#s2-left-rule',
+        { scaleY: 0, transformOrigin: 'top center' }, { scaleY: 1, duration: 1.1, ease: 'power2.out' }, 4.95);
+      tl.fromTo('#s2-ghost',
+        { opacity: 0, x: -56 }, { opacity: 1, x: 0, duration: 1.1, ease: 'power2.out' }, 5.0);
+      tl.fromTo('#s2-47',
+        { opacity: 0, scale: 1.07 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' }, 5.05);
+      tl.fromTo('#s2-label',
+        { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 5.15);
+      tl.fromTo('#s2-headline',
+        { opacity: 0, x: -38 }, { opacity: 1, x: 0, duration: 1.0, ease: 'expo.out' }, 5.45);
+      tl.fromTo('#s2-rule',
+        { scaleX: 0 }, { scaleX: 1, duration: 0.62, ease: 'expo.out' }, 6.3);
+      tl.fromTo('#s2-sub',
+        { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'sine.inOut' }, 6.6);
+      tl.fromTo('#s2-features',
+        { opacity: 0, x: 32 }, { opacity: 1, x: 0, duration: 0.75, ease: 'power2.out' }, 7.1);
+
+      // ─── SCENE 3 ANIMATIONS ───
+      tl.fromTo('#s3-right-rule',
+        { scaleY: 0, transformOrigin: 'top center' }, { scaleY: 1, duration: 1.1, ease: 'power2.out' }, 10.0);
+      tl.fromTo('#s3-corner-tl',
+        { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 10.05);
+      tl.fromTo('#s3-corner-br',
+        { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 10.2);
+      tl.fromTo('#s3-meta',
+        { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 10.15);
+      tl.fromTo('#s3-quote',
+        { opacity: 0, x: -32 }, { opacity: 1, x: 0, duration: 1.35, ease: 'power1.out' }, 10.4);
+      tl.fromTo('#s3-attr-rule',
+        { scaleX: 0 }, { scaleX: 1, duration: 0.52, ease: 'expo.out' }, 11.8);
+      tl.fromTo('#s3-attr',
+        { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.62, ease: 'power2.out' }, 12.05);
+
+      // ─── SCENE 4 ANIMATIONS ───
+      tl.fromTo('#s4-name',
+        { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.55, ease: 'power2.out' }, 13.5);
+      tl.fromTo('#s4-rule',
+        { scaleX: 0 }, { scaleX: 1, duration: 0.44, ease: 'expo.out' }, 13.92);
+      tl.fromTo('#s4-url',
+        { opacity: 0 }, { opacity: 1, duration: 0.52, ease: 'sine.inOut' }, 14.12);
+      tl.fromTo('#s4-loc',
+        { opacity: 0 }, { opacity: 1, duration: 0.48, ease: 'sine.inOut' }, 14.22);
+
+      window.__timelines['main'] = tl;
     </script>
   </body>
 </html>
