@@ -1,0 +1,32 @@
+# スキル⑩ content-repurposing-engine への投入データ
+
+## コンテンツ転用・展開依頼
+
+スキル⑨で作成したInstagramキャプション（パターンA）を、
+以下の媒体・目的向けに転用してください。
+
+【元コンテンツ（⑨パターンAを貼り付けて使用）】
+---
+"While the rest of Kyoto sleeps, your day begins.
+
+At KASUMI HOTEL KYOTO, mornings are our signature. Your early-rise guide leads you
+through the stone-paved lanes of Higashiyama before the first tourist bus arrives.
+Return to the inn as the city awakens, and sit down to a breakfast of seasonal
+Kyoto vegetables sourced directly from the farmers of Nishikyo.
+
+This is not sightseeing. This is belonging — even for a morning.
+
+Ready to claim your Kyoto morning? Book directly at [link in bio] for our Early Bird rate."
+---
+
+【転用先と形式】
+1. OTAリスティング概要文（Booking.com / Expedia 向け、300文字以内、英語）
+2. OTAリスティング概要文（じゃらん / 楽天トラベル 向け、300文字以内、日本語）
+3. メールマーケティング本文（既存ゲスト向け再来訪促進、英語、200〜250words）
+4. Google ビジネスプロフィール 投稿文（日本語、150文字以内）
+5. TripAdvisor オーナーレスポンス テンプレート（英語、口コミへの返信用）
+
+【変換時の注意】
+- 媒体ごとの文字数制限を守ること
+- CTAは各媒体のリンク仕様に合わせること（OTAは「詳細はこちら」形式）
+- トーンは媒体に合わせて微調整（OTAは情報量多め、SNSは感情訴求）

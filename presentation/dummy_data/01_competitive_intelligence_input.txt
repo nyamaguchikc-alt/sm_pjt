@@ -1,0 +1,23 @@
+# スキル① competitive-intelligence への投入データ
+
+## 調査依頼
+
+調査対象エリア：京都・東山エリア（祇園〜清水坂周辺）
+調査対象：外国人向け高級宿泊施設（上位5施設）
+調査軸：
+- 料金帯（ADR）
+- OTA評価（Booking.com / Expedia / TripAdvisor）
+- SNS訴求軸（Instagram / X）
+- ターゲット国籍・客層
+- 主要強み・差別化ポイント
+- 弱み・ネガティブ口コミ傾向
+
+調査目的：
+KASUMI HOTEL KYOTOが欧米インバウンドFIT客（30〜50代）に対して
+直販比率とADRを高めるための戦略ポジショニングを明確にする。
+
+参照想定ソース：
+- Booking.com 口コミ上位50件（英語・フランス語・ドイツ語）
+- TripAdvisor Certificate of Excellence 受賞施設
+- Instagram ハッシュタグ #KyotoHotel #KyotoRyokan 上位投稿
+- STR/AirDNA 公開データ（エリア平均OCC・ADR）

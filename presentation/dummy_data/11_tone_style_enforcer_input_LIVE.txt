@@ -1,0 +1,42 @@
+# スキル⑪ tone-style-enforcer への投入データ【ライブ実行用】
+# ※このファイルの内容を本番でコピペして投入する
+
+## ブランドトーン調整依頼
+
+以下のInstagramキャプション（スキル⑨〜⑩で作成済み）を、
+KASUMI HOTEL KYOTOのブランドトーンに合わせて3パターンに調整してください。
+
+【元キャプション（⑨パターンAから）】
+"While the rest of Kyoto sleeps, your day begins.
+At KASUMI HOTEL KYOTO, mornings are our signature. Your early-rise guide leads you
+through the stone-paved lanes of Higashiyama before the first tourist bus arrives.
+Return to the inn as the city awakens, and sit down to a breakfast of seasonal
+Kyoto vegetables sourced directly from the farmers of Nishikyo.
+This is not sightseeing. This is belonging — even for a morning.
+Ready to claim your Kyoto morning? Book directly at [link in bio] for our Early Bird rate."
+
+【ブランドトーン定義】
+テーマ：「静謐・本物志向・非日常の日常」
+NG表現：過剰な感嘆符、luxury/exclusive/world-classなどの誇示語
+OK表現：自然・静けさ・発見・職人・季節・朝・光・stone・moss・silence
+
+【3パターンの出力指定】
+
+▼ パターン1：CALM（静寂・瞑想的）
+- 短文・余白・詩的な表現
+- リズム：ゆっくり読める、間のある文体
+- 想定読者：ヨガ・マインドフルネス志向の欧米女性旅行者
+
+▼ パターン2：CURIOUS（知的好奇心・発見）
+- 問いかけ・意外性・「知られていない」視点
+- リズム：テンポよく、情報密度やや高め
+- 想定読者：文化・歴史好きの欧米男性旅行者
+
+▼ パターン3：LUXE（品格・静かな高級感）
+- 控えめだが格調ある表現、数字や質を示す具体性
+- リズム：凛とした文体、感嘆なし
+- 想定読者：ビジネスクラス旅行者・リピーター層
+
+【出力形式】
+各パターン：本文150〜180words + ハッシュタグ10個
+言語：英語
