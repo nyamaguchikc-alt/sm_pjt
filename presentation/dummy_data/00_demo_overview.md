@@ -1,35 +1,35 @@
-# デモ概要：11スキル連携 インバウンド戦略内製化
+# デモ概要：11スキル連携 HOTEL FORK & KNIFE Miyajima ADR・OCC改善示唆だし
 
-## 架空題材設定
-- ホテル名：KASUMI HOTEL KYOTO（架空）
-- エリア：京都・東山エリア（祇園〜清水坂）
-- 物件規模：全40室、開業2年目
-- ターゲット：欧米インバウンド FIT客（30〜50代カルチャー志向）
-- 課題：OTA依存が高く、直販比率・ADRが伸び悩んでいる
+## 施設情報（実データ）
+- 施設名：HOTEL FORK & KNIFE Miyajima
+- 開業：2026年3月28日（開業2ヶ月時点）
+- 客室：34室（大人専用 12歳以上）
+- 設計：建築家・佐野文彦氏による和モダン設計
+- 食：薪火ガストロノミー（全11品・ミシュラン監修）
+- SPA：ルーフトップ混浴温泉SPA（水着着用・厳島神社ビュー）
 
-## 11スキルの実行順序と録画区間
+## デモで扱う3論点
+1. **レベニューマネジメント** — Twin A OCC 22%の構造課題と改善施策
+2. **OTAチャネル最適化** — 一休.com依存33%からの脱却シミュレーション
+3. **口コミ×競合分析** — 差分抽出と次の打ち手
 
-| # | スキル名 | 内容 | 形式 | 目安時間 |
-|---|---------|------|------|---------|
-| ① | competitive-intelligence | 競合情報の収集 | 早送り録画 | 5秒 |
-| ② | source-validation | 出典・根拠の検証 | 早送り録画 | 5秒 |
-| ③ | knowledge-structuring | 情報の構造化・整理 | 早送り録画 | 5秒 |
-| ④ | deep-research-synthesizer | 市場機会の深掘り合成 | 早送り録画 | 5秒 |
-| ⑤ | flowchart-decision-builder | 意思決定フローの構築 | 早送り録画 | 5秒 |
-| ⑥ | scqa-writing-framework | SCQA形式での戦略整理 | 早送り録画 | 5秒 |
-| ⑦ | workflow-automation-agent | 実行ワークフロー設計 | 早送り録画 | 5秒 |
-| ⑧ | hook-generator | 広告フック文の生成 | 早送り録画 | 5秒 |
-| ⑨ | structured-copywriting | 構造化コピーライティング | 早送り録画 | 5秒 |
-| ⑩ | content-repurposing-engine | コンテンツ転用・展開 | 早送り録画 | 5秒 |
-| ⑪ | tone-style-enforcer | ブランドトーン調整 | **ライブ実行** | 約25秒 |
+## 11スキルの構成
 
-## 録画編集の指示
-- ①〜⑩は各スキルの「入力→実行→出力表示」を収録後、2〜3倍速に編集
-- 各スキルに画面上部にテロップ：「スキル① competitive-intelligence 実行中...」
-- 合計早送りパート：約45〜50秒に圧縮
-- ⑪のライブ前に「LIVE」ウォーターマーク表示
+| # | スキル名 | 論点 | 形式 |
+|---|---------|------|------|
+| ① | data-intake-structurer | 実績数値の構造化 | 早送り録画 |
+| ② | revenue-scenario-builder | OCC改善3シナリオ生成 | 早送り録画 |
+| ③ | pricing-action-generator | 客室別価格施策 | 早送り録画 |
+| ④ | channel-dependency-analyzer | 一休依存度の構造分解 | 早送り録画 |
+| ⑤ | direct-booking-simulator | 直販比率向上の収益シミュレーション | 早送り録画 |
+| ⑥ | channel-mix-roadmap | 90日チャネル最適化ロードマップ | 早送り録画 |
+| ⑦ | review-insight-extractor | 口コミ構造化・示唆抽出 | 早送り録画 |
+| ⑧ | competitor-gap-analyzer | 競合3施設との差分分析 | 早送り録画 |
+| ⑨ | action-priority-matrix | 施策優先度マトリクス | 早送り録画 |
+| ⑩ | weekly-report-template | 役員向け週次レポート成型 | 早送り録画 |
+| ⑪ | executive-decision-synthesizer | 3論点統合サマリー + 次回意思決定事項 | **ライブ実行** |
 
-## バックアップ動画
-- ①〜⑪すべてを通しで収録した動画を別ファイルで保存
-- ファイル名：demo_fullbackup_KASUMI_KYOTO.mp4
-- 保存場所：デスクトップ + USBメモリ（2重保存）
+## デモ時間配分（スライド5：計80秒）
+- ①〜⑩ 早送り録画：45秒
+- ⑪ ライブ実行（貼り付け〜出力）：25秒
+- 出力説明：10秒
